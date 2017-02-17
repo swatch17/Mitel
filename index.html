@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>Mitel Test2.9</title>
+    <link rel="stylesheet" href="assets/css/R3_CRM_v2.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <!--JS脚本部分-->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+</head>
+
+<body class="fixed" style="overflow:hidden">
+    <div class="large">
+        <div id="header">
+            <div class="nav clearfix">
+                <div class="nav-lef con-lef">
+                    <a href="#">R3</a>
+                </div>
+                <div class="nav-rig">
+                    <div class="lit">
+                        <a href="#" class="sidebar-toggle"><i class="fa fa-bars"></i></a>
+                    </div>
+                    <div class="rig">
+                        <ul class="clearfix">
+                            <li class="voice-box">
+                                <a href="#" class="voice-btn">
+                                    <i class="fa fa-phone"></i>语音
+                                </a>
+                                <div class="voice-bar" style="">
+                                    <ol class="voice-list unstyled cf">
+                                        <li class="record">
+                                            <span class="p_title">状态时间</span>
+                                            <!--当前状态灯颜色-->
+                                            <i class="fa fa-circle" id="lamp"></i>
+                                            <span class="talk-time t-green" id="callTime">00:00:00
+                                            <!--<i class="t-green">00</i>--></span>
+                                            <ol class='fold-menu fade hide'>
+                                                <li class='fold-menu-item' id='busy'><i class="fa fa-circle"></i>示忙</li>
+                                                <li class='fold-menu-item' id='disturb'><i class="fa fa-circle"></i>小憩</li>
+                                            </ol>
+                                        </li>
+                                        <li class="input-num" id="Dial" style="padding:0;">
+                                            <img class="dial" src="assets/img/icon-dial.png">
+                                        </li>
+                                        <li class="status">
+                                            <ul class="statusList">
+                                                <li class="notReady disabled">
+                                                    <i class="fa fa-flag"></i>
+                                                    <br>
+                                                    <button id="notReady" disabled="disabled">未就绪</button>
+                                                </li>
+                                                <li class="live dead ready">
+                                                    <i class="fa fa-flag"></i>
+                                                    <br>
+                                                    <button id="ready" class="btn-use">就绪</button>
+                                                </li>
+                                                <li class="answer disabled">
+                                                    <i class="fa fa-headphones"></i>
+                                                    <br>
+                                                    <button disabled="disabled" id="answer">接听</button>
+                                                </li>
+                                                <li class="drop disabled">
+                                                    <i class="fa fa-microphone-slash"></i>
+                                                    <br>
+                                                    <button id="drop" disabled="disabled">挂断</button>
+                                                </li>
+                                                <li class="hold disabled">
+                                                    <i class="fa fa-microphone"></i>
+                                                    <br>
+                                                    <button id="hold" disabled="disabled">保持</button>
+                                                </li>
+                                                <li class='trans disabled'><i class='fa fa-random'></i>
+                                                    <br>
+                                                    <button id='trans' disabled="disabled">转接</button>
+                                                </li>
+                                                <li class="takeBack disabled">
+                                                    <i class="fa fa-reply-all"></i>
+                                                    <br>
+                                                    <button disabled="disabled" id="takeBack">取回</button>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <div class="AP-num">
+                                            <ol class="phoneList">
+                                                <li class="device">
+                                                    <i class="fa fa-phone-square"></i>
+                                                    <span id="callDevice"></span>
+                                                </li>
+                                                <li class="text-center">
+                                                    <button class="But btn-use" id='btn-showModal' data-toggle="modal" data-target="#loginModal">登录
+                                                    </button>
+                                                    <button class="But btn-use dead" id="btn-logout">登出</button>
+                                                </li>
+                                            </ol>
+                                        </div>
+                                    </ol>
+                                </div>
+                                <div class="phone-tab-contents " id="mobile">
+                                    <!--dead-->
+                                    <div class="phone-panel ">
+                                        <div class="num-area cf">
+                                            <input class="numbers" id="inp-num" placeholder="输入号码">
+                                            <!--disabled="disabled"-->
+                                            <a class="btn-del delete-btn"></a>
+                                        </div>
+                                        <!--按键区-->
+                                        <div class="num-key cf">
+                                            <input type="button" value="1" id="1" class="numBtn">
+                                            <input type="button" value="2" id="2" class="numBtn">
+                                            <input type="button" value="3" id="3" class="numBtn">
+                                            <input type="button" value="4" id="4" class="numBtn">
+                                            <input type="button" value="5" id="5" class="numBtn">
+                                            <input type="button" value="6" id="6" class="numBtn">
+                                            <input type="button" value="7" id="7" class="numBtn">
+                                            <input type="button" value="8" id="8" class="numBtn">
+                                            <input type="button" value="9" id="9" class="numBtn">
+                                            <input type="button" value="*" id="*" class="numBtn">
+                                            <input type="button" value="0" id="0" class="numBtn">
+                                            <input type="button" value="#" id="#" class="numBtn">
+                                        </div>
+                                        <div class="phone-btn">
+                                            <button class="btn-dial" id="btn-call" disabled="disabled">拨打</button>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="offBtn">X</button>
+                                </div>
+                            </li>
+                            <li class="online-box">
+                                <a href="#">
+                                    <i class="fa fa fa-commenting-o"></i>我在线上
+                                </a>
+                                <ul class="drop-menu" style="display:none">
+                                    <li><a href="/online.html"><i class="fa fa fa-comments-o" style="color:#444444"></i>当前对话</a>
+                                    </li>
+                                    <li><a href="#"><i class="fa fa fa-check-square text-success" style="color:#1c84c6"></i>我在线上</a>
+                                    </li>
+                                    <li><a href="#"><i class="fa fa-minus-square text-danger"
+                                                   style="color:#a94442"></i>忙碌</a></li>
+                                    <li><a href="#"><i class="fa fa fa-check-square" style="color:#00a65a;"></i>空闲</a></li>
+                                    <li><a href="#"><i class="fa fa-times-circle-o" style="color:#b5bbc8;"></i>离线</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-bell-o" aria-hidden="true"></i>提醒
+                                </a>
+                            </li>
+                            <li class="dropdown user-menu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <img src="assets/img/chat-user2.png" class="server-img">
+                                    <span class="username">张天翼</span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <!--user-img-->
+                                    <li class="user-header">
+                                        <img src="assets/img/user2-160x160.jpg" alt="">
+                                        <p>
+                                            北京中科融研科技有限公司
+                                            <small class="ext-number">5622928@qq.com</small>
+                                        </p>
+                                    </li>
+                                    <li class="user-body">
+                                        <div class="row-fluid u-r-f">
+                                            <div class="span6 text-center">
+                                                <a href="#">
+                                                    <i class="fa fa-desktop"></i> 工作台
+                                                </a>
+                                            </div>
+                                            <div class="span6 text-center">
+                                                <a href="#">
+                                                    <i class="fa fa-cogs"></i> 管理台
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="user-footer cf">
+                                        <div class="pull-left">
+                                            <a href="#" class="btn btn-default">个人信息</a>
+                                        </div>
+                                        <div class="pull-right">
+                                            <a href="#" class="btn btn-default">退出系统</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <i class="fa fa-question-circle"></i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--  Now   -->
+        <ul>
+            <li><b>坐席名：</b><span id="agentName"></span></li>
+            <li><b>坐席号：</b><span id="device"></span></li>
+            <li>
+                <select id="devices" style="width:110px;">
+                    <option value="agent1">Agent 1</option>
+                    <option value="ext1">Base extension</option>
+                    <option value="ext2">HD extension</option>
+                </select>
+            </li>
+        </ul>
+    </div>
+    <!--模态框-->
+    <div class="modal fade hide" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                    登录软电话
+                </h4>
+                </div>
+                <div class="modal-body">
+                    <!--</form>-->
+                    <form id="form-login" class="form-horizontal row-fluid" role="search" onsubmit="return false;">
+                        <!--分机号-->
+                        <div class="form-group clearfix">
+                            <label for="ext-number" class="span2 control-label">分机号</label>
+                            <div class="span6">
+                                <input name="ext-number" type="text" class="form-control" id="ext-number" placeholder="请输入分机号" value="30001">
+                            </div>
+                        </div>
+                        <!--域名-->
+                        <div class="form-group clearfix">
+                            <label for="domain" class=" span2 control-label">域名</label>
+                            <div class="col-sm-10 span6">
+                                <input name="domain" type="text" class="form-control" id="domain" placeholder="请输入域名" value="127.0.0.1:90">
+                            </div>
+                        </div>
+                        <!--密码-->
+                        <div class="form-group clearfix">
+                            <label for="password" class="span2 control-label">密码</label>
+                            <div class="span6">
+                                <input name="password" type="password" class="form-control" id="password" placeholder="请输入密码" value="30001">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button id="btn-login" type="button" class="btn btn-primary">
+                        登录
+                    </button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                    </button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal -->
+    </div>
+    <!--Phone JS部分-->
+    <script src="assets/mitel/1-api.js"></script>
+    <script src="assets/mitel/jquery.signalR.js"></script>
+    <script src="assets/mitel/1-main.js"></script>
+    <script src="assets/mitel/1-ui.js"></script>
+</body>
+
+</html>
