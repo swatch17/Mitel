@@ -2,6 +2,9 @@ var loginId = '';
 var loginInfo;
 var phoneInfo = {};//来电信息（主、被叫、方向、通话Id）
 
+var EventName = '';
+var conversationId;
+
 function Micc(Server) {
 
     var miccServer = 'http://' + Server;

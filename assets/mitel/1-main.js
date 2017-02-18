@@ -1,5 +1,5 @@
-// var R3SoftPhone = new Micc($('#domain').val());
-var R3SoftPhone = new Micc('crm.r3yun.com:90');
+var R3SoftPhone = new Micc($('#domain').val());
+// var R3SoftPhone = new Micc('crm.r3yun.com:90');
 
 //登录按钮
 $(document).on('click', '#btn-login', function (event) {
