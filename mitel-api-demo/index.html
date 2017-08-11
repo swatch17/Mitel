@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv='Cache-Control' content="no-cache,must-revalidate">
+    <meta http-equiv='expires' content="0">
+    <title>Mitel Demo</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/demo.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="voice-bar">
+            <ol class='unstyled voice-list'>
+                <li class="status">
+                    <li class="login-accordian">
+                        <ol class='phoneList unstyled'>
+                            <li class="enabled" id="btn-showModal" data-toggle='modal' data-target='#loginModal' title='登录'></li>
+                            <li class='dead enabled' id="btn-logout" title="登出"></li>
+                        </ol>
+                    </li>
+                    <li class='state-item dropdown'>
+                        <b class="n-state-menu " id="state-menu" data-toggle='dropdown'></b>
+                        <ul class='dead state-item-box'>
+                            <li class="available" id="available">
+                                <i class="fa fa-check-circle b-color"></i>
+                                <span class="f12 b-color">就绪</span>
+                            </li>
+                            <li class="busy dropdown" id="busy">
+                                <i class="fa b-color fa-hourglass-1"></i>
+                                <span class="f12 b-color">示忙</span>
+                                <div class='busy-box dead' id='busyR'>
+                                    <p class='text-center reason-title'><b>原因</b></p>
+                                    <ul class=" text-center" id="busy-box">
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="disturb dropdown" id="disturb">
+                                <i class="fa b-color fa-ban"></i>
+                                <span class="f12 b-color">勿扰</span>
+                                <div class="disturb-box dead" id="disturbR">
+                                    <p class="text-center reason-title">原因</p>
+                                    <ul class="text-center" id="disturb-box">
+                                    </ul>
+                                </div>
+                            </li>
+                            <!-- <li class="offline" id="offline">
+                        <i class="fa b-color fa-clock-o"></i>
+                        <span class="f12 b-color">离线</span>
+                    </li> -->
+                        </ul>
+                    </li>
+                    <!-- Phone operation Begin -->
+                    <li class="n-answer disabled" id="answer" title='接听'></li>
+                    <li class="n-drop disabled" id="drop" title='挂断'></li>
+                    <li class="n-Dial disabled" id="Dial" title='拨号'></li>
+                    <li class="n-hold disabled" id="hold" title='保持'></li>
+                    <li class="takeBack disabled dead" id="takeBack" title='取回'></li>
+                    <li class="n-trans disabled" id="trans" title='转接'>
+                        <ol class="trans-box dead" id="transBox">
+                            <li>30002</li>
+                            <li>30002</li>
+                        </ol>
+                    </li>
+                    <!-- Phone operation End -->
+                    <li class='p-state'>
+                        <span class='p_title'>状态</span>
+                        <i class="fa fa-circle s_off" id="lamp"></i>
+                        <span class='time t-green' id='time'>00:00:00</span>
+                    </li>
+                    <li class="calling-state">
+                        <img id='call-not' src="assets/img/phone-not.png" class="">
+                        <img id="call-ring" src="assets/img/ringing.png" class="dead">
+                        <img id="on-call" src="assets/img/on-call.png" class="dead">
+                        <img id="call-hold" src="assets/img/phone-hold.png" class="dead">
+                    </li>
+                    <li class="call-addr">
+                        <span class="f12">
+                          主叫：<b class="callIn f12"></b>
+                        </span>
+                        <br>
+                        <span class="f12">
+                          被叫：<b class="callOut f12"></b>
+                        </span>
+                    </li>
+                    <li class="">
+                        <span class="f12 c_y">新疆 乌鲁木齐</span>
+                        <br>
+                        <span class="f12 c_y">北京</span>
+                    </li>
+            </ol>
+        </div>
+        <!-- Phone-Pad -->
+        <div class="phone-tab-contents dead" id="mobile">
+            <div class="phone-panel">
+                <div class="num-area cf">
+                    <input class="numbers" id="inp-num" placeholder="输入号码">
+                    <!--disabled="disabled"-->
+                    <!--<a class="btn-del delete-btn"></a>-->
+                </div>
+                <!--按键区-->
+                <div class="num-key cf">
+                    <input type="button" value="1" id="1" class="numBtn">
+                    <input type="button" value="2" id="2" class="numBtn">
+                    <input type="button" value="3" id="3" class="numBtn">
+                    <input type="button" value="4" id="4" class="numBtn">
+                    <input type="button" value="5" id="5" class="numBtn">
+                    <input type="button" value="6" id="6" class="numBtn">
+                    <input type="button" value="7" id="7" class="numBtn">
+                    <input type="button" value="8" id="8" class="numBtn">
+                    <input type="button" value="9" id="9" class="numBtn">
+                    <input type="button" value="*" id="*" class="numBtn">
+                    <input type="button" value="0" id="0" class="numBtn">
+                    <input type="button" value="#" id="#" class="numBtn">
+                </div>
+                <div class="phone-btn">
+                    <button id="clear" class="btn-3c">Clear</button>
+                    <button class="btn-dial" id="btn-call">Call</button>
+                    <button id="cancel" class="btn-3c">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt20">
+        <p><span>坐席号：</span><b id="device"></b><span>主叫号：<b class="callIn"></b></span>
+            <span>被叫号：<b class="calledOut"></b></span></p>
+        <div class="infoBox clearfix">
+            <div class="_box info-left pull-left">
+                <p class='text-center'>状态 信息</p>
+                <div class='stateInfo'>
+                </div>
+            </div>
+            <div class="_box info-right pull-left">
+                <p class='text-center'>事件 信息</p>
+                <div class="push_event">
+                </div>
+            </div>
+            <input id='btnClear' class='btn btn-danger pull-right' type="button" name="" value="清空">
+        </div>
+    </div>
+    <!--模态框-->
+    <div class="modal fade hide" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                    登录软电话
+                </h4>
+                </div>
+                <div class="modal-body">
+                    <!--</form>-->
+                    <form id="form-login" class="form-horizontal row-fluid" role="search" onsubmit="return false;">
+                        <!--分机号-->
+                        <div class="form-group clearfix">
+                            <label for="ext-num" class="span2 control-label">分机号</label>
+                            <div class="span6">
+                                <input name="ext-num" type="text" class="form-control" id="ext-num" placeholder="请输入分机号" value="25001">
+                            </div>
+                        </div>
+                        <!--坐席号-->
+                        <div class="form-group clearfix">
+                            <label for="agent-num" class="span2 control-label">坐席号</label>
+                            <div class="span6">
+                                <input name="agent-num" type="text" class="form-control" id="agent-num" placeholder="请输入坐席号" value="30001">
+                            </div>
+                        </div>
+                        <!--密码-->
+                        <div class="form-group clearfix">
+                            <label for="password" class="span2 control-label">密码</label>
+                            <div class="span6">
+                                <input name="password" type="password" class="form-control" id="password" placeholder="请输入密码" value="30001">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button id="btn-login" type="button" class="btn btn-primary">
+                        登录
+                    </button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                    </button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal -->
+    </div>
+    <!--JS脚本部分-->
+    <script src="assets/lib/jquery.min.js" charset="utf-8"></script>
+    <script src="assets/lib/bootstrap.min.js" charset="utf-8"></script>
+    <!-- Phone JS部分 -->
+    <script src="assets/js/1-api.js" charset="utf-8"></script>
+    <script src="assets/js/jquery.signalR.js" charset="utf-8"></script>
+    <script src="assets/js/1-event.js" charset="utf-8"></script>
+    <script src="assets/js/1-main.js" charset="utf-8"></script>
+    <script src="assets/js/1-ui.js" charset="utf-8"></script>
+    <script src="assets/js/test.js" charset="utf-8"></script>
+</body>
+
+</html>

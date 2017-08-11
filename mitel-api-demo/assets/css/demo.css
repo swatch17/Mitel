@@ -1,0 +1,399 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+ul,
+ol,
+li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.header {
+    width: 100%;
+    height: 50px;
+    background-color: #19a55d;
+}
+
+.voice-bar {
+    height: 46px;
+    border-radius: 25px;
+    background-color: #008d4c;
+    position: absolute;
+    top: 2px;
+    left: 26%;
+}
+
+.voice-list {
+    padding: 1px 12px;
+}
+
+.voice-list>li {
+    float: left;
+    position: relative;
+    z-index: 300;
+}
+
+.login-accordian {
+    margin-left: 4px;
+}
+
+.p-state {
+    font-size: 12px;
+    padding: 0;
+    height: 20px;
+    line-height: 20px;
+    margin: 4px 4px 0 4px;
+    width: 56px;
+    color: #fff;
+}
+
+.p_title {
+    display: block;
+    width: 56px;
+    height: 20px;
+    line-height: 20px;
+    overflow: hidden;
+    font-size: 10px;
+}
+
+.t-green {
+    color: #12e284;
+    font-style: normal;
+}
+
+#lamp {
+    position: absolute;
+    top: 2px;
+    right: 0;
+}
+
+.time {
+    font-size: 14px;
+    font-weight: 500;
+    height: 12px;
+    line-height: 12px;
+    display: block;
+    width: 56px;
+}
+
+.statusList>li {}
+
+.phoneList>li {
+    margin-top: 2px;
+}
+
+#Dial,
+#answer,
+#drop,
+#hold,
+#takeBack,
+#trans,
+.phoneList>li {
+    width: 42px;
+    height: 42px;
+}
+
+.n-Dial {
+    background: url(../img/n-Dial.png)
+}
+
+.Dial {
+    background: url(../img/Dial.png)
+}
+
+.answer {
+    background: url(../img/answer.png)
+}
+
+.n-answer {
+    background: url(../img/n-answer.png)
+}
+
+.drop {
+    background: url(../img/drop.png)
+}
+
+.n-drop {
+    background: url(../img/n-drop.png)
+}
+
+.hold {
+    background: url(../img/hold.png)
+}
+
+.n-hold {
+    background: url(../img/n-hold.png)
+}
+
+.takeBack {
+    background: url(../img/back.png)
+}
+
+
+
+
+
+
+/*.n-takeBack {
+    background: url(../img/n-back.png)
+}*/
+
+.trans {
+    background: url(../img/trans.png)
+}
+
+.n-trans {
+    background: url(../img/n-trans.png)
+}
+
+
+#btn-showModal {
+    background: url(../img/loginUser.png)
+}
+
+#btn-logout {
+    background: url(../img/logout.png)
+}
+
+.s_ava {
+    color: #3fac49;
+}
+
+.s_busy {
+    color: #f8ca00;
+}
+
+.s_disturb {
+    color: #ed1c24;
+}
+
+.s_off {
+    color: #5c6369;
+}
+
+.btn-dis {
+    cursor: not-allowed !important;
+}
+
+.busy-box,
+.disturb-box {
+    position: absolute;
+    z-index: 2222;
+    top: 0;
+    left: 60px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    min-width: 60px;
+}
+
+.busy-box>li>a,
+.disturb-box>li>a {
+    font-size: 12px;
+    color: #666;
+}
+
+#busy:hover .busy-box,
+#disturb:hover .disturb-box {
+    display: block;
+}
+
+.state-item-box>li {
+    color: #555;
+    text-align: left;
+    padding-left: 2px;
+}
+
+.state-item {
+    margin-top: 2px;
+}
+
+.n-state-menu {
+    display: block;
+    width: 42px;
+    height: 42px;
+    background: url(../img/n-status.png)
+}
+
+.state-menu {
+    display: block;
+    width: 42px;
+    height: 42px;
+    background: url(../img/status.png)
+}
+
+.enabled {
+    cursor: pointer;
+}
+
+.disabled {
+    cursor: not-allowed;
+}
+
+.dead {
+    display: none;
+}
+
+.enabled>.b-color {
+    color: #12e284;
+}
+
+.f12 {
+    font-size: 12px;
+}
+
+.call-addr {
+    width: 137px;
+    color: #fff;
+    margin-left: 6px;
+}
+
+.state-item-box {
+    min-width: 60px;
+    top: 40px;
+}
+
+.phone-tab-contents {
+    width: 180px;
+    background: rgba(24, 28, 37, .8);
+    border-radius: 10px;
+    position: absolute;
+    right: 50%;
+    top: 52px;
+    z-index: 1000;
+}
+
+.phone-panel {
+    padding: 0 10px;
+}
+
+.num-area {
+    position: relative;
+    width: 100%;
+    padding-top: 10px;
+}
+
+.numbers {
+    width: 120px;
+    overflow: hidden;
+    white-space: nowrap;
+    height: 32px;
+    line-height: 32px;
+    font-size: 14px;
+    font-weight: 500;
+    float: left;
+    z-index: 100;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    padding: 0 0 0 6px;
+    margin-left: 17px;
+    background: url(../img/input-num.png) no-repeat center;
+}
+
+.btn-del {
+    display: block;
+    width: 28px;
+    height: 30px;
+    background: url(../img/phone-delete.png) no-repeat center;
+    position: relative;
+    left: 130px;
+    cursor: pointer;
+}
+
+.num-key {
+    width: 120px;
+    margin-left: 20px;
+}
+
+.num-key>.numBtn {
+    font-size: 14px;
+    color: #fff;
+    border: 1px solid #161a23;
+    display: block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    background-color: #3d3f47;
+    text-align: center;
+    float: left;
+    cursor: pointer;
+    margin: 4px;
+}
+
+.num-key>.numBtn:focus {
+    outline: none
+}
+
+.phone-btn {
+    text-align: center;
+    padding: 0;
+    height: 40px;
+    line-height: 40px;
+}
+
+.phone-btn .btn-dial {
+    color: #fff;
+    border: none;
+    font-size: 12px;
+    border-radius: 25px;
+    background-color: #19a55d;
+    padding: 2px 20px;
+}
+
+.phone-btn .btn-3c {
+    font-size: 12px;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    background-color: rgba(25, 165, 93, .6);
+    padding: 2px 4.5px;
+}
+
+.cf:after {
+    display: block;
+    content: '';
+    clear: both;
+}
+
+.mt20 {
+    margin-top: 20px;
+}
+
+._box {
+    border: 1px solid #DDD;
+    overflow-y: auto;
+    margin: 10px;
+    padding: 20px;
+}
+
+.info-left {
+    height: 200px;
+    width: 100px;
+}
+
+.info-right {
+    height: 200px;
+    width: 700px;
+}
+
+.trans-box {
+    border: 1px solid #e7e7e7;
+    padding: 5px;
+    position: absolute;
+    top: 50px;
+    left: 0;
+}
+
+.c_y {
+    color: yellow;
+}
+
+.f12 {
+    font-size: 12px;
+}
