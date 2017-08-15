@@ -135,7 +135,6 @@ function stateProcess(presence) {
         UI.hideBtn('btn-logout');
         UI.showBtn('btn-showModal');
         end();
-        initTime();
     } else {
         $('.p_title').text(EmployeeState);
         UI.hideBtn('btn-showModal');
@@ -248,18 +247,11 @@ function Time() {
     var _m = m < 10 ? ('0' + m) : m;
     var _h = h < 10 ? ('0' + h) : h;
     time.innerHTML = _h + ':' + _m + ':' + _s;
+    interTime = setTimeout('Time()', 1000)
 }
-var start = function() {
-    interTime = setInterval(Time, 1000);
-};
-var end = function() {
-    clearInterval(interTime);
-};
-var initTime = function() {
-    time.innerHTML = '00' + ':' + '00' + ':' + '00';
-};
 
-function clearTime() {
-    end();
-    initTime();
-}
+var end = function() {
+    clearTimeout(interTime)
+    s = 0;
+    document.getElementById('time').innerHTML = '00' + ':' + '00' + ':' + '00';
+};
