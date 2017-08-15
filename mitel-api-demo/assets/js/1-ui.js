@@ -14,7 +14,8 @@ var UI = {
                 {
                     UI.AnswerPhone(data);console.log('已接听！');
                     console.log('This is:' + data);
-
+                    end();
+                    Time();
                 }
                 break;
             case 'Outbound': //内线
@@ -29,6 +30,8 @@ var UI = {
                     UI.AnswerPhone(data);console.log('已接听！');
                     console.log('这是外呼');
                     console.log('This is :' + data);
+                    end();
+                    Time();
 
                 }
                 break;
