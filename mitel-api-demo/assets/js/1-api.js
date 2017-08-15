@@ -37,7 +37,7 @@ function Micc(Server) {
       UI.showBtn('btn-logout');
       UI.hideBtn('btn-showModal');
       UI.enabledBtn('Dial', 'state-menu');
-      start();
+      Time();
     });
 
   };
