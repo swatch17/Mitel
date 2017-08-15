@@ -48,7 +48,7 @@ $(document).ready(function() {
             $('#busyR').addClass('dead');
             $('#disturbR').addClass('dead');
             $('.p_title').text('Status');
-            initTime();
+            end();
             //其他操作
         });
     });
@@ -188,7 +188,48 @@ $(document).ready(function() {
 
         }
     });
+  /*Status Active*/
+    $('#state-menu').click(function(event) {
+        event.stopPropagation();
+        if ($('#state-menu').hasClass('enabled')) {
+            if ($('.state-item-box').hasClass('dead')) {
+                $('.state-item-box').removeClass('dead');
+            } else {
+                $('.state-item-box').addClass('dead');
+                $('#busyR').addClass('dead');
+                $('#disturbR').addClass('dead');
+            }
+        }
 
+    });
+  /*状态设置*/
+  //可用(签入)
+ $('#available').click(function() {
+        var payload = {
+            state: 'Available'
+        };
+        R3SoftPhone.setEmployeeState('me', payload, function(res) {
+            console.log('可用', res);
+            Extension();
+        });
+
+
+        $('.state-item-box').addClass('dead');
+        $('#busyR').addClass('dead');
+        $('#disturbR').addClass('dead');
+    });
+  //登出离线(签出)
+    $('#offline').click(function() {
+        var payload = {
+            state: 'Offline'
+        };
+        R3SoftPhone.setEmployeeState('me', payload, function(res) {
+            console.log('离线', res);
+        });
+        $('.state-item-box').addClass('dead');
+        $('#busyR').addClass('dead');
+        $('#disturbR').addClass('dead');
+    });
     $(document).on('click', '#btnClear', function() {
         $('.push_event').text('');
     });
