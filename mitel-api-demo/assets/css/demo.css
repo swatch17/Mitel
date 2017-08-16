@@ -254,9 +254,16 @@ li {
 
 .state-item-box {
     min-width: 60px;
-    top: 40px;
+   position:absolute;
+    top: 44px;
+    background-color:#fff;
+    border:1px solid #e7e7e7;
+    border-radius:4px;
 }
-
+.state-item-box>li:hover{
+    cursor: pointer;
+    background-color:#f9f9f9;
+}
 .phone-tab-contents {
     width: 180px;
     background: rgba(24, 28, 37, .8);
