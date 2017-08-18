@@ -155,6 +155,7 @@ $(document).ready(function() {
 
         R3SoftPhone.postEmployeeConversation('me', req, function() {
             // 其他操作
+           $('#mobile').addClass('dead');
         });
         $('.callIn').text(fromNum);
         $('.callOut').text(PhoneInfo.calledNum);
