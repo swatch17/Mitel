@@ -7,7 +7,7 @@ var UI = {
         switch (data) {
             case 'Offered': //来电振铃事件
                 {
-                    UI.CallRing(data);console.log('来电！');
+                    UI.CallRing(data);console.log('来电！*******************************************');
                 }
                 break;
             case 'NonAcd': //内线
