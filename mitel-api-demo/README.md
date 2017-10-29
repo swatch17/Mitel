@@ -1,8 +1,9 @@
-### 主要功能
-- [此案例开发环境为:micc.dahengit.com](https://micc.dahengit.com/miccsdk)
-- 接听
-- 挂断
-- 转接
-- 保持
-- 取回
-- 记录会话相关 信息(主叫、被叫、呼出方 ...)
+### 涓昏鍔熻兘
+- [姝ゆ渚嬪紑鍙戠幆澧冧负:micc.dahengit.com](https://micc.dahengit.com/miccsdk)
+- 鎺ュ惉
+- 鎸傛柇
+- 杞帴
+- 淇濇寔
+- 鍙栧洖
+- 璁板綍浼氳瘽鐩稿叧 淇℃伅(涓诲彨銆佽鍙�佸懠鍑烘柟 ...)
+- 璁块棶鍦板潃[鐐瑰嚮](https://swatch17.github.io/Mitel/mitel-api-demo)
